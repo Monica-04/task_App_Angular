@@ -1,0 +1,104 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "project": [
+    {
+      "name": "Jira clone",
+      "key": "JC",
+      "description": "Creating a replica",
+      "id": 1,
+      "icon": "manager"
+    },
+    {
+      "name": "test",
+      "key": "test",
+      "description": "kjhg khg kjhgk",
+      "id": 2,
+      "icon": "presentation"
+    },
+    {
+      "name": "jira create",
+      "key": "JC",
+      "description": "new clone",
+      "id": 3,
+      "icon": "project"
+    }
+  ],
+  "ticket": [
+    {
+      "id": 1,
+      "title": "",
+      "description": "ioyeuddxckykuvyibykftgws",
+      "type": "Story",
+      "status": "To-Do",
+      "priority": "Low",
+      "assignee": "",
+      "reporter": "",
+      "summary": "hhSLWHS",
+      "creationDate": "2023-11-29T10:39:10.116Z"
+    },
+    {
+      "id": 2,
+      "projectName": "Jira clone",
+      "title": "board creation",
+      "description": "",
+      "type": "Task",
+      "status": "To-Do",
+      "priority": "Medium",
+      "reporter": "John",
+      "summary": "writing ts logic for the board component",
+      "creationDate": "2023-12-05T05:40:17.297Z"
+    },
+    {
+      "id": 3,
+      "projectName": "Jira clone",
+      "title": "implement drag",
+      "description": "",
+      "type": "Task",
+      "status": "To-Do",
+      "priority": "High",
+      "reporter": "Monica",
+      "summary": "implement drag/drop",
+      "creationDate": "2023-12-08T05:14:07.248Z"
+    },
+    {
+      "id": 4,
+      "projectName": "Jira clone",
+      "title": "implement drop",
+      "description": "",
+      "type": "Task",
+      "status": "In-Progress",
+      "priority": "Medium",
+      "reporter": "Monica",
+      "summary": "i want ticket",
+      "creationDate": "2023-12-08T05:55:52.475Z"
+    },
+    {
+      "id": 5,
+      "projectName": "test",
+      "title": "create home ",
+      "description": "",
+      "type": "Story",
+      "status": "To-Do",
+      "priority": "Low",
+      "reporter": "Monica",
+      "summary": "",
+      "creationDate": "2023-12-08T09:37:17.651Z"
+    }
+  ]
+}

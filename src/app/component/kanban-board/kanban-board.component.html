@@ -1,0 +1,38 @@
+<div class="container-fluid board">
+  <div class="row lanes">
+    <div class="col-4 swim-lanes" id="todo-lane" cdkDropList 
+      [cdkDropListData]="projectTickets"
+      [cdkDropListConnectedTo]="['inProgress-lane', 'done-lane']"
+      (cdkDropListDropped)="onDrop($event)">
+      <h3 class="heading">TODO</h3>
+      <ng-container *ngFor="let ticket of projectTickets">
+       
+        <a *ngIf="ticket.status === 'To-Do'" class="ticket" cdkDrag [cdkDragData]="ticket">{{ ticket.title }}<br>
+        </a>
+        
+      </ng-container>
+    </div>
+
+    <div class="col-4 swim-lanes" id="inProgress-lane" cdkDropList
+      [cdkDropListData]="projectTickets"
+      [cdkDropListConnectedTo]="['todo-lane', 'done-lane']"
+      (cdkDropListDropped)="onDrop($event)">
+      <h3 class="heading">IN PROGRESS</h3>
+      <ng-container *ngFor="let ticket of projectTickets">
+       
+        <a *ngIf="ticket.status === 'In-Progress'" class="ticket" cdkDrag [cdkDragData]="ticket">{{ ticket.title }}</a>
+      </ng-container>
+    </div>
+
+    <div class="col-4 swim-lanes" id="done-lane" cdkDropList
+      [cdkDropListData]="projectTickets"
+      [cdkDropListConnectedTo]="['todo-lane', 'inProgress-lane']"
+      (cdkDropListDropped)="onDrop($event)">
+      <h3 class="heading">DONE</h3>
+      <ng-container *ngFor="let ticket of projectTickets">
+       
+        <a *ngIf="ticket.status === 'Done'" class="ticket" cdkDrag [cdkDragData]="ticket">{{ ticket.title }}</a>
+      </ng-container>
+    </div>
+  </div>
+</div>

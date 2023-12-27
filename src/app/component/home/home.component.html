@@ -1,0 +1,13 @@
+<div class="row">
+    <h3>Worked On</h3><br>
+    <div class="col-md-3" *ngFor="let project of projects">
+      <div class="card mb-3">
+        <img [src]="getIconPath(project.icon)" class="card-img-top" alt="Project Icon">
+        <div class="card-body" (click)="navigateToBoard(project)">
+          <h5 class="card-title">{{ project.name }}</h5>
+          <p class="card-text">{{ project.key }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

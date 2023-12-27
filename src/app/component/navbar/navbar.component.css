@@ -1,0 +1,28 @@
+nav{
+    height: 3rem;
+}
+
+.nav-link{
+    display: flex;
+    color:white;
+    margin-left: 50px;
+}
+
+.nar-bar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-part{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.navbar-brand img {
+    border-radius: 50%;
+}
+.theme-ravenclaw {
+    --fa-secondary-opacity: 1.0;
+    --fa-primary-color: rgb(4, 56, 161);
+    --fa-secondary-color: rgb(108, 108, 108);
+  }

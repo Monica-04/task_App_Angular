@@ -1,0 +1,155 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <div class="container-fluid nar-bar">
+
+        <div class="nav-part">
+            <a class="navbar-brand" href="#">
+                <img src="https://th.bing.com/th/id/OIP.6A7Spk2Wk_PPecWYEIWJCgHaHw?rs=1&pid=ImgDetMain" alt="Logo"
+                    width="30" height="30">
+            </a>
+
+            <!-- Create Icon -->
+            <a href="#" class="nav-link">
+                <i class="fa fa-plus"></i>
+            </a>
+
+            <!-- Create Project Dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Projects</button>
+                <div class="dropdown-menu">
+                    <!-- Project List -->
+                    <h6 class="dropdown-header">Project List</h6>
+                    <ul class="dropdown-header" style="list-style-type: none;">
+                        <li *ngFor="let project of projectData">
+                            <a class="dropdown-item" [routerLink]="['/board', project.name]" href="">
+                                <i class="fa fa-cogs" aria-hidden="true" style="margin-right: 8px;"></i>
+                                {{ project.name }}</a>
+                        </li>
+                    </ul>
+                
+              
+                  <!-- Divider -->
+                  <hr class="dropdown-divider">
+              
+                  <!-- Additional Options -->
+                  <a class="dropdown-item" (click)="navigateToProjectType()">Create Project</a>
+                  <a class="dropdown-item" (click)="navigateToViewProject()">View All Projects</a>
+                </div>
+              </div>
+              
+
+            <!-- Create Button -->
+            <div class="container mt-1">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"
+                    (click)="openModal()">Create</button>
+            </div>
+
+        </div>
+
+        <div class="nav-part">
+            <!-- Notification Icon -->
+            <a href="#" class="nav-link">
+                <i class="fa fa-bell"></i>
+            </a>
+
+            <!-- Menu Icon -->
+            <a href="#" class="nav-link">
+                <i class="fa fa-search"></i>
+            </a>
+
+            <!-- Question Mark Icon -->
+            <a href="#" class="nav-link">
+                <i class="fa fa-question"></i>
+            </a>
+        </div>
+
+    </div>
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create Issue</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <!-- Project Name -->
+                    <div class="mb-3">
+                        <label for="ProjectName" class="form-label">Project</label>
+                        <select class="form-select" id="project-name" name="projectName" required [(ngModel)]="ticket.projectName">
+                            <option value="" selected disabled>Select project</option>
+                            <option *ngFor="let project of projectData" [value]="project.name">{{ project.name }}</option>
+                        </select>
+                    </div>
+                    <!--title-->
+                    <div class="mb-3">
+                        <label for="issueSummary" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="issueSummary" placeholder="Enter title"
+                            required name="summary" required [(ngModel)]="ticket.title">
+                    </div>
+                    <!-- Issue type -->
+
+                    <div class="row mb-3">
+
+                        <div class="col">
+                            <label for="issueType" class="form-label">Issue Type</label>
+                            <select class="form-select" id="issueType" name="type" required [(ngModel)]="ticket.type">
+                                <option value="" selected disabled>Select issue type</option>
+                                <option *ngFor="let type of issueTypes">{{type}}</option>
+                            </select>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="col">
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select" id="status" required name="status"  [(ngModel)]="ticket.status">
+                                <option value="" selected disabled>Select status</option>
+                               <option *ngFor="let stat of status">{{stat}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Issue summary -->
+                    <div class="mb-3">
+                        <label for="issueSummary" class="form-label">Summary</label>
+                        <input type="text" class="form-control" id="issueSummary" placeholder="Enter issue summary"
+                            required name="summary" required [(ngModel)]="ticket.summary">
+                    </div>
+
+                    <!-- Issue description -->
+                    <div class="mb-3">
+                        <label for="issueDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="issueDescription" rows="3"
+                            placeholder="Enter issue description" name="description" required [(ngModel)]="ticket.description"></textarea>
+                    </div>
+                     <!-- Assigned To -->
+                     <div class="mb-3">
+                        <label for="assignedTo" class="form-label">Reporter</label>
+                        <select class="form-select" id="assigned" required name="reporter" required [(ngModel)]="ticket.reporter">
+                            <option value="" selected disabled>Select Reporter</option>
+                            <option *ngFor="let report of reporter">{{report}}</option>
+                        </select>
+                    </div>
+                    <!-- Priority -->
+                    <div class="mb-3">
+                        <label for="priority" class="form-label">Priority</label>
+                        <select class="form-select" id="priority" required name=" priority" required [(ngModel)]="ticket. priority">
+                            <option value="" selected disabled>Select priority</option>
+                            <option *ngFor="let prior of priority">{{prior}}</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" (click)="createTicket()">Create</button>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    (click)="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
